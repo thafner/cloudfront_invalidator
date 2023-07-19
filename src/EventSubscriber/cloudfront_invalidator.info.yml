@@ -1,0 +1,8 @@
+name: CloudFront Invalidator
+type: module
+description: A module that invalidates paths/aliases in CloudFront after entity updates.
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - path_alias
+

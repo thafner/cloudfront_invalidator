@@ -1,0 +1,26 @@
+cloudfront_invalidator.settings:
+  type: config_object
+  label: 'Cloudfront Invalidator settings'
+  mapping:
+    cf_distribution_id:
+      type: string
+      label: 'AWS Distribution ID'
+    cf_access_key:
+      type: string
+      label: 'AWS Access Key'
+    cf_secret_key:
+      type: string
+      label: 'AWS Secret Key'
+    messenger_mode:
+      type: boolean
+      label: 'Is messenger mode active'
+    debug_mode:
+      type: boolean
+      label: 'Is debug mode active'
+    news_enabled:
+      type: boolean
+      label: 'Is News Invalidation active'
+    news_paths:
+      type: string
+      label: 'News invalidation paths.'
+

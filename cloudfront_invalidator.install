@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the CloudFront Invalidator module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function cloudfront_invalidator_install() {}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cloudfront_invalidator_uninstall() {
+  Drupal::configFactory()->getEditable('cloudfront_invalidator.settings')->delete();
+}

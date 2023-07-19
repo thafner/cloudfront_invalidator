@@ -1,0 +1,13 @@
+cf_distribution_id: ''
+cf_access_key: ''
+cf_secret_key: ''
+messenger_mode: 0
+debug_mode: 0
+news_enabled: 0
+news_paths: ''
+dependencies:
+  module:
+    - cloudfront_invalidator
+  enforced:
+    module:
+      - cloudfront_invalidator

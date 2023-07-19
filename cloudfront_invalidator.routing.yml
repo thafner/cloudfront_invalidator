@@ -1,0 +1,22 @@
+cloudfront_invalidator.settings:
+  path: '/admin/config/development/performance/cloudfront-invalidator'
+  defaults:
+    _title: 'CloudFront Invalidator Key Settings'
+    _form: 'Drupal\cloudfront_invalidator\Form\CloudfrontInvalidatorKeySettingsForm'
+  requirements:
+    _permission: 'administer cloudfront_invalidator configuration'
+
+cloudfront_invalidator.path_invalidation:
+  path: '/admin/config/development/performance/cloudfront-invalidator/path-invalidator'
+  defaults:
+    _title: 'Cloudfront Path Invalidation'
+    _form: 'Drupal\cloudfront_invalidator\Form\CloudfrontInvalidatorPathForm'
+  requirements:
+    _permission: 'administer site configuration'
+cloudfront_invalidator.entity_invalidation:
+  path: '/admin/config/development/performance/cloudfront-invalidator/entity-invalidator'
+  defaults:
+    _title: 'Cloudfront Entity Invalidation'
+    _form: 'Drupal\cloudfront_invalidator\Form\CloudfrontInvalidatorEntityForm'
+  requirements:
+    _permission: 'administer site configuration'

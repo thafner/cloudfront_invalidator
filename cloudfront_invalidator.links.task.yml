@@ -1,0 +1,16 @@
+cloudfront_invalidator.settings:
+  title: 'Cloudfront Invalidator'
+  route_name: cloudfront_invalidator.settings
+  base_route: system.performance_settings
+cloudfront_invalidator.settings_tab:
+  title: 'Keys'
+  route_name: cloudfront_invalidator.settings
+  parent_id: cloudfront_invalidator.settings
+cloudfront_invalidator.path_invalidation:
+  title: 'Path Invalidation'
+  route_name: cloudfront_invalidator.path_invalidation
+  parent_id: cloudfront_invalidator.settings
+cloudfront_invalidator.entity_invalidation:
+  title: 'Entity Invalidation'
+  route_name: cloudfront_invalidator.entity_invalidation
+  parent_id: cloudfront_invalidator.settings

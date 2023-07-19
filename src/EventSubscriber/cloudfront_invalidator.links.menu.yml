@@ -1,0 +1,21 @@
+#cloudfront_invalidator.key_settings_form:
+#  title: CloudFront Invalidator
+#  description: Configure CloudFront Invalidator.
+#  base_route: system.performance_settings
+#  route_name: cloudfront_invalidator.key_settings_form
+#  weight: 10
+cloudfront_invalidator.settings:
+  title: 'CloudFront Invalidator'
+  parent: system.performance_settings
+  description: 'CloudFront Invalidator settings.'
+  route_name: cloudfront_invalidator.settings
+cloudfront_invalidator.path_invalidation:
+  title: 'Path Invalidation'
+  description: 'Invalidate CloudFront paths.'
+  route_name: cloudfront_invalidator.path_invalidation
+  parent: cloudfront_invalidator.settings
+cloudfront_invalidator.entity_invalidation:
+  title: 'Entity Invalidation'
+  description: 'Invalidate entity paths in CloudFront.'
+  route_name: cloudfront_invalidator.entity_invalidation
+  parent: cloudfront_invalidator.settings

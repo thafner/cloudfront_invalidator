@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for CloudFront Invalidator module.
+ *
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\cloudfront_invalidator\Event\EntityUpdateEvent;
+use Drupal\cloudfront_invalidator\Event\EntityDeleteEvent;
+use Drupal\cloudfront_invalidator\Event\EntityCreateEvent;
+
+/**
+ * Implements hook_entity_create().
+ */
+function cloudfront_invalidator_entity_insert(EntityInterface $entity) {
+  $base_type = $entity->getEntityTypeId();
+
+  if ($base_type == 'node' || $base_type == 'media') {
+    $event = new EntityCreateEvent($entity);
+
+    /** @var \Symfony\Component\EventDispatcher\EventDispatcher $event_dispatcher */
+    $event_dispatcher = \Drupal::service('event_dispatcher');
+    $event_dispatcher->dispatch($event, EntityCreateEvent::CREATE);
+  }
+
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function cloudfront_invalidator_entity_update(EntityInterface $entity) {
+  $base_type = $entity->getEntityTypeId();
+
+  if ($base_type == 'node' || $base_type == 'media') {
+    $event = new EntityUpdateEvent($entity);
+
+    /** @var \Symfony\Component\EventDispatcher\EventDispatcher $event_dispatcher */
+    $event_dispatcher = \Drupal::service('event_dispatcher');
+    $event_dispatcher->dispatch($event, EntityUpdateEvent::UPDATE);
+  }
+
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function cloudfront_invalidator_entity_delete(EntityInterface $entity) {
+  $base_type = $entity->getEntityTypeId();
+
+  if ($base_type == 'node' || $base_type == 'media') {
+    $event = new EntityUpdateEvent($entity);
+
+    /** @var \Symfony\Component\EventDispatcher\EventDispatcher $event_dispatcher */
+    $event_dispatcher = \Drupal::service('event_dispatcher');
+    $event_dispatcher->dispatch($event, EntityDeleteEvent::DELETE);
+  }
+}

@@ -1,0 +1,10 @@
+services:
+  cloudfront_invalidator.invalidate:
+    class: Drupal\cloudfront_invalidator\CloudfrontInvalidator
+    arguments: [ '@config.factory', '@logger.factory', '@entity_type.manager', '@path.current', '@path_alias.manager', '@messenger', '@queue', '@plugin.manager.queue_worker', '@state', '@datetime.time']
+
+  cloudfront_invalidator.event_subscriber:
+    class: Drupal\cloudfront_invalidator\EventSubscriber\cloudfrontCloudfrontInvalidatorSubscriber
+    arguments: [ '@cloudfront_invalidator.invalidate', '@config.factory', '@path_alias.manager', '@logger.factory' ]
+    tags:
+      - { name: event_subscriber }
